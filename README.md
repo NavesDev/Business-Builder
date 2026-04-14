@@ -43,7 +43,7 @@ Business Builder provides a structured operating model that links business goals
 
 ## Setup and validation commands
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/NavesDev/Business-Builder.git
 cd BusinessBuilder
 
 # Check key documentation files

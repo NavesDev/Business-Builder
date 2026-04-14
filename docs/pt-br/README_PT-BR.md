@@ -43,7 +43,7 @@ O Business Builder oferece um modelo operacional estruturado que conecta objetiv
 
 ## Comandos de setup e validacao
 ```bash
-git clone <url-do-seu-repositorio>
+git clone https://github.com/NavesDev/Business-Builder.git
 cd BusinessBuilder
 
 # Verificar arquivos principais
