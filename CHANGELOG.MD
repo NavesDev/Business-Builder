@@ -10,8 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added comprehensive business framework documentation for digital business creation, monetization, operations, compliance, and development handoff.
 - Added bilingual documentation assets (`BUSINESS_DOCUMENTAION.md` and `docs/pt-br/BUSINESS_DOCUMENTAION_PT-BR.md`) covering the full playbook structure.
 - Added deterministic-skill guidance including required input/output contract, status rules, and traceability IDs.
+- Added professional bilingual README documentation (`README.md` canonical EN and `docs/pt-br/README_PT-BR.md` translation).
+- Added developer-oriented README elements: badges, table of contents, setup/validation commands, and contribution workflow.
 
 ### Changed
 - Expanded monetization coverage with a broader revenue model library and explicit model-selection sequence.
 - Strengthened execution quality with operational dictionary defaults, KPI applicability matrix, and objective gate/risk thresholds.
 - Established English as the canonical documentation direction, with PT-BR maintained under `docs/`.
+- Replaced the minimal root README with a full project positioning and documentation navigation guide.
