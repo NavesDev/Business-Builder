@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added deterministic-skill guidance including required input/output contract, status rules, and traceability IDs.
 - Added professional bilingual README documentation (`README.md` canonical EN and `docs/pt-br/README_PT-BR.md` translation).
 - Added developer-oriented README elements: badges, table of contents, setup/validation commands, and contribution workflow.
+- Added role-based Product Owner skill at `skills/product-owner/SKILL.md` with deterministic output contract, handoff quality gates, and RED/GREEN validation artifacts.
 
 ### Changed
 - Expanded monetization coverage with a broader revenue model library and explicit model-selection sequence.
