@@ -4,7 +4,7 @@
 ![Canonical Language: EN](https://img.shields.io/badge/Canonical-EN-blue)
 ![PT--BR Translation](https://img.shields.io/badge/Translation-PT--BR-orange)
 
-Business Builder is a documentation-first framework for creating digital businesses with clear operational standards across strategy, product, monetization, growth, governance, and development handoff.
+Business Builder is an AI plugin and documentation-first framework for creating digital businesses with clear operational standards across strategy, product, monetization, growth, governance, and development handoff.
 
 ## Table of Contents
 - [Why this project exists](#why-this-project-exists)
@@ -22,6 +22,7 @@ Most digital business projects fail because strategy decisions and implementatio
 Business Builder provides a structured operating model that links business goals to actionable outputs (requirements, business rules, acceptance criteria, metrics, and risk controls).
 
 ## What is included
+- AI plugin workspace for role-based business-building skills
 - End-to-end business framework (8 pillars)
 - Expanded revenue model library with selection criteria
 - Deterministic skill contract guidance

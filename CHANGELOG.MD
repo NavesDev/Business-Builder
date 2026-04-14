@@ -22,3 +22,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Replaced the minimal root README with a full project positioning and documentation navigation guide.
 - Refined cross-functional execution with explicit function-interface contracts, handoff packet structure, SLA rules, and escalation levels.
 - Updated AI skill blueprint to enforce role-based skill naming and file layout (`skills/<role-based-skill-name>/SKILL.md`), with `product-manager` as the recommended first implementation.
+- Clarified EN and PT-BR READMEs to explicitly position Business Builder as an AI plugin.

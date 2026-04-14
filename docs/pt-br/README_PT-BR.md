@@ -4,7 +4,7 @@
 ![Idioma Canonico: EN](https://img.shields.io/badge/Canonico-EN-blue)
 ![Traducao PT--BR](https://img.shields.io/badge/Traducao-PT--BR-orange)
 
-Business Builder e um framework orientado por documentacao para criacao de negocios digitais com padroes operacionais claros em estrategia, produto, monetizacao, growth, governanca e handoff para desenvolvimento.
+Business Builder e um plugin de IA e um framework orientado por documentacao para criacao de negocios digitais com padroes operacionais claros em estrategia, produto, monetizacao, growth, governanca e handoff para desenvolvimento.
 
 ## Sumario
 - [Por que este projeto existe](#por-que-este-projeto-existe)
@@ -22,6 +22,7 @@ Muitos projetos de negocio digital falham porque decisoes estrategicas e artefat
 O Business Builder oferece um modelo operacional estruturado que conecta objetivos de negocio a saidas acionaveis (requisitos, regras de negocio, criterios de aceite, metricas e controles de risco).
 
 ## O que esta incluido
+- Workspace de plugin de IA com skills orientadas por papeis para criacao de negocios
 - Framework ponta a ponta de negocio (8 pilares)
 - Biblioteca expandida de modelos de faturamento com criterios de selecao
 - Guia de contrato deterministico para skills
