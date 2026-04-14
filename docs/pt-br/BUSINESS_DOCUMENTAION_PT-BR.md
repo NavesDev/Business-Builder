@@ -78,6 +78,48 @@ Cada skill deve sobrescrever os valores quando o contexto exigir (segmento, tick
 
 > Regra: um mesmo profissional pode acumular papeis no inicio, mas as **responsabilidades** continuam obrigatorias.
 
+## 4.1) Protocolo de colaboracao entre funcoes (refinamento operacional)
+Este protocolo transforma colaboracao entre cargos em um modelo executavel com interfaces explicitas, SLAs e trilha de escalonamento.
+
+### Contrato de interface por funcao (obrigatorio)
+Todo handoff entre funcoes deve definir:
+- Artefatos de entrada: formato exigido, dono e criterio de qualidade.
+- Artefatos de saida: formato esperado, criterio de aceite e funcao consumidora.
+- SLA: tempo de aceite e tempo de conclusao.
+- Gatilho de escalonamento: condicao objetiva que abre escalonamento.
+- Caminho de escalonamento: quem resolve em L1, L2 e L3.
+
+### Matriz minima de colaboracao
+| Funcao | Recebe de | Entrega para | Saida obrigatoria | SLA | Gatilho de escalonamento | Caminho de escalonamento |
+|---|---|---|---|---|---|---|
+| Founder/CEO | Product Manager, Growth, Financeiro | PO, Growth, Financeiro, Operacoes | Prioridades estrategicas + log de decisoes | Decisao estrategica <= 48h | Decisao bloqueada > 48h ou prioridades conflitantes | L1 Founder/CEO -> L2 sync executivo |
+| Product Manager | Founder/CEO, Growth, CS | PO, Growth, Sales | Pacote ICP + Tese de Valor | Handoff <= 72h por ciclo | ICP/tese de valor ambiguos | L1 PM + PO -> L2 Founder |
+| Product Owner | Product Manager, Founder, Tech Lead | Tech, UX, Operacoes | Escopo MVP + Backlog priorizado + Criterios de aceite | Decisao de backlog <= 24h; refresh semanal de escopo | Historias sem aceite ou dependencias sem dono | L1 PO + Tech -> L2 Founder/Ops |
+| Growth Lead | Product Manager, PO, Financeiro | Product Manager, PO, Financeiro | Relatorio semanal de insights de growth | Aceite de incidente <= 24h; relatorio semanal | CAC acima do limite por 2 ciclos | L1 Growth + PM -> L2 Founder + CFO |
+| Head de Operacoes | PO, Tech, Growth | Todos os donos de funcao | Delta de SOP + dashboard de SLA | Atualizacao de SOP antes de release ou <= 72h | SLA estourado por 2 ciclos consecutivos | L1 Ops + dono -> L2 triagem executiva |
+| CFO/Financeiro | Founder, Growth, PO | Founder, PO, Growth | Memo de gate financeiro | Alerta critico de caixa <= 24h; fechamento mensal | Margem abaixo do minimo ou runway abaixo do limite | L1 CFO + Founder -> L2 decisao executiva |
+| Juridico/DPO | PO, Operacoes, Sales | Founder, PO, Operacoes | Nota de decisao de compliance | Resposta a risco legal <= 48h | Risco alto legal/LGPD ou clausula contratual sem resolucao | L1 Juridico/DPO + dono -> L2 Founder |
+
+### Pacote obrigatorio de handoff (funcao para funcao)
+1. ID do handoff e data.
+2. Funcao de origem e funcao de destino.
+3. Entradas obrigatorias e criterio de qualidade.
+4. Saidas esperadas e criterio de aceite.
+5. Meta de SLA e data limite.
+6. Riscos, dono e prazo de mitigacao.
+7. Status: pass / blocked / escalated.
+
+### Niveis de escalonamento
+- L1 (resolucao entre pares): donos de origem e destino tentam resolver em SLA + 24h.
+- L2 (triagem de lideranca): itens sem resolucao em L1 entram em triagem cross-funcional em ate 48h.
+- L3 (decisao executiva): Founder/Executivo resolve conflito de escopo, budget, risco legal ou prioridade estrategica.
+
+### Regras operacionais cross-funcionais
+- Nenhum handoff e valido sem input/output explicito e dono definido.
+- Retrabalho por handoff ambiguo deve ser registrado e revisado na cadencia seguinte.
+- Estouro recorrente de SLA (2 ciclos consecutivos) abre escalonamento automaticamente.
+- Toda mudanca que afete 2+ funcoes deve gerar entrada em log de decisao compartilhado.
+
 ---
 
 ## 5) Playbook detalhado por pilar
@@ -527,6 +569,7 @@ Para eliminar "quando aplicavel", cada skill deve marcar KPI como **obrigatorio*
 ## 11) Cadencia de gestao (rituais obrigatorios)
 - **Diario (operacao):** fila critica, incidentes, gargalos.
 - **Semanal (performance):** funil, receita, churn, principais experimentos.
+- **Semanal (handoffs cross-funcionais):** revisao de interface (input/output), aderencia de SLA, dependencias bloqueadas e decisoes de escalonamento.
 - **Quinzenal (produto):** revisao de backlog, escopo e aprendizados.
 - **Mensal (executivo):** DRE gerencial, caixa, riscos e decisoes de alocacao.
 - **Trimestral (estrategico):** reposicionamento, novos bets e encerramento de linhas.
@@ -545,18 +588,24 @@ Para eliminar "quando aplicavel", cada skill deve marcar KPI como **obrigatorio*
 ---
 
 ## 13) Blueprint para converter este padrao em skills de IA
+### 13.0 Convencao de nome e estrutura de arquivo (obrigatorio)
+- Nome da skill deve seguir o cargo/atribuicao principal responsavel pela saida.
+- Estrutura de arquivo obrigatoria: `skills/<role-based-skill-name>/SKILL.md`.
+- Nome de pasta sempre em kebab-case.
+- Primeira implementacao recomendada: `skills/product-manager/SKILL.md` (validacao de mercado: ICP, dor prioritaria e tese de valor).
+
 ### 13.1 Skills recomendadas (minimo)
-| Skill | Objetivo | Entrada obrigatoria | Saida padrao |
+| Pasta da skill | Objetivo | Entrada obrigatoria | Saida padrao |
 |---|---|---|---|
-| skill-estrategia-posicionamento | Definir ICP e tese de valor | Nicho, dores, sinais de mercado | Tese validada + ICP priorizado |
-| skill-oferta-produto | Montar oferta e backlog MVP | Tese estrategica + restricoes | Escopo MVP + backlog + aceite |
-| skill-receita-monetizacao | Definir faturamento e pricing | Custo, valor percebido, benchmark | Modelo principal + politica comercial |
-| skill-aquisicao-growth | Estruturar canais e funil | ICP + oferta + budget | Plano de canais + metas de CAC |
-| skill-conversao-retencao | Melhorar ativacao e LTV | Dados de funil e churn | Plano CRM/CS + metas de retencao |
-| skill-operacao-gestao | Padronizar execucao | Processos atuais e SLAs | SOPs + handoffs + governanca |
-| skill-financas-unit-economics | Garantir sustentabilidade | Receita, custos, caixa | Modelo financeiro + limites |
-| skill-compliance-governanca | Cobrir legal/fiscal/LGPD | Fluxos de dados e contratos | Pacote de compliance minimo |
-| skill-handoff-dev | Traduzir negocio para engenharia | Saidas dos 8 pilares | RF/RNF/BR/CA priorizados |
+| product-manager | Definir ICP e tese de valor | Nicho, dores, sinais de mercado | Tese validada + ICP priorizado |
+| product-owner | Montar oferta e backlog MVP | Tese estrategica + restricoes | Escopo MVP + backlog + aceite |
+| revenue-strategy-lead | Definir faturamento e pricing | Custo, valor percebido, benchmark | Modelo principal + politica comercial |
+| growth-lead | Estruturar canais e funil | ICP + oferta + budget | Plano de canais + metas de CAC |
+| crm-retention-lead | Melhorar ativacao e LTV | Dados de funil e churn | Plano CRM/CS + metas de retencao |
+| head-of-operations | Padronizar execucao | Processos atuais e SLAs | SOPs + handoffs + governanca |
+| cfo-finance | Garantir sustentabilidade | Receita, custos, caixa | Modelo financeiro + limites |
+| legal-dpo | Cobrir legal/fiscal/LGPD | Fluxos de dados e contratos | Pacote de compliance minimo |
+| engineering-handoff-manager | Traduzir negocio para engenharia | Saidas dos 8 pilares | RF/RNF/BR/CA priorizados |
 
 ### 13.2 Contrato deterministico por skill (obrigatorio)
 Cada skill deve seguir o mesmo contrato em Markdown para manter consistencia.
@@ -564,7 +613,7 @@ Cada skill deve seguir o mesmo contrato em Markdown para manter consistencia.
 #### Bloco A - Entrada obrigatoria da skill
 | Campo | Obrigatorio | Exemplo |
 |---|---|---|
-| skill_id | Sim | `skill-aquisicao-growth` |
+| skill_id | Sim | `growth-lead` |
 | segmento | Sim | `B2B`, `B2C` ou `Hibrido` |
 | modelo_receita | Sim | `Assinatura mensal` |
 | fase_maturidade | Sim | `Nivel 1`, `Nivel 2` |

@@ -18,3 +18,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Strengthened execution quality with operational dictionary defaults, KPI applicability matrix, and objective gate/risk thresholds.
 - Established English as the canonical documentation direction, with PT-BR maintained under `docs/`.
 - Replaced the minimal root README with a full project positioning and documentation navigation guide.
+- Refined cross-functional execution with explicit function-interface contracts, handoff packet structure, SLA rules, and escalation levels.
+- Updated AI skill blueprint to enforce role-based skill naming and file layout (`skills/<role-based-skill-name>/SKILL.md`), with `product-manager` as the recommended first implementation.

@@ -78,6 +78,48 @@ Each skill must override values when context requires it (segment, ticket size, 
 
 > Rule: one person may accumulate roles initially, but **responsibilities** remain mandatory.
 
+## 4.1) Cross-Functional Collaboration Protocol (operational refinement)
+This protocol turns role collaboration into an executable operating model with explicit interfaces, SLAs, and escalation paths.
+
+### Interface contract per function (mandatory)
+Every handoff between functions must define:
+- Input artifacts: required format, owner, and quality criteria.
+- Output artifacts: expected format, acceptance criteria, and destination function.
+- SLA: acknowledgement time and completion time.
+- Escalation trigger: objective condition that opens escalation.
+- Escalation path: who resolves at L1, L2, and L3.
+
+### Minimum collaboration matrix
+| Function | Receives from | Delivers to | Mandatory output | SLA | Escalation trigger | Escalation path |
+|---|---|---|---|---|---|---|
+| Founder/CEO | Product Manager, Growth, Finance | PO, Growth, Finance, Operations | Strategic priorities + decision log | Strategic decision <= 48h | Decision blocked > 48h or conflicting priorities | L1 Founder/CEO -> L2 executive sync |
+| Product Manager | Founder/CEO, Growth, CS | PO, Growth, Sales | ICP + Value Thesis Pack | Handoff <= 72h per cycle | Ambiguous ICP/value thesis | L1 PM + PO -> L2 Founder |
+| Product Owner | Product Manager, Founder, Tech Lead | Tech, UX, Operations | MVP Scope + Prioritized Backlog + Acceptance Criteria | Backlog decision <= 24h; weekly scope refresh | Stories without acceptance or unresolved dependencies | L1 PO + Tech -> L2 Founder/Ops |
+| Growth Lead | Product Manager, PO, Finance | Product Manager, PO, Finance | Weekly Growth Insight Report | Incident acknowledgement <= 24h; weekly report | CAC above threshold for 2 cycles | L1 Growth + PM -> L2 Founder + CFO |
+| Head of Operations | PO, Tech, Growth | All role owners | SOP Delta + SLA Dashboard | SOP update before release or <= 72h | SLA breach for 2 consecutive cycles | L1 Ops + owner -> L2 executive triage |
+| CFO/Finance | Founder, Growth, PO | Founder, PO, Growth | Finance Gate Memo | Critical cash alert <= 24h; monthly close cadence | Margin below minimum or runway threshold breached | L1 CFO + Founder -> L2 executive decision |
+| Legal/DPO | PO, Operations, Sales | Founder, PO, Operations | Compliance Decision Note | Legal-risk response <= 48h | High legal/LGPD risk or unresolved contract clause | L1 Legal/DPO + owner -> L2 Founder |
+
+### Mandatory handoff packet (function-to-function)
+1. Handoff ID and date.
+2. Origin function and destination function.
+3. Required inputs and quality criteria.
+4. Expected outputs and acceptance criteria.
+5. SLA target and due date.
+6. Risks, owner, and mitigation deadline.
+7. Status: pass / blocked / escalated.
+
+### Escalation levels
+- L1 (peer resolution): origin and destination owners attempt resolution within SLA + 24h.
+- L2 (leadership triage): unresolved L1 items go to cross-functional triage within 48h.
+- L3 (executive decision): Founder/Executive resolves conflicts involving scope, budget, legal risk, or strategic priority.
+
+### Cross-functional operating rules
+- No handoff is valid without explicit input/output and owner.
+- Rework caused by ambiguous handoff must be logged and reviewed in the next cadence.
+- Recurrent SLA breach (2 consecutive cycles) automatically opens escalation.
+- Any change affecting 2+ functions must include a shared decision-log entry.
+
 ---
 
 ## 5) Detailed playbook by pillar
@@ -527,6 +569,7 @@ To eliminate "when applicable", each skill must tag KPI as **mandatory** or **ma
 ## 11) Management cadence (mandatory rituals)
 - **Daily (operations):** critical queue, incidents, bottlenecks.
 - **Weekly (performance):** funnel, revenue, churn, top experiments.
+- **Weekly (cross-functional handoffs):** interface review (input/output), SLA adherence, blocked dependencies, escalation decisions.
 - **Biweekly (product):** backlog review, scope, and learnings.
 - **Monthly (executive):** management P&L, cash, risks, and allocation decisions.
 - **Quarterly (strategic):** repositioning, new bets, and line shutdowns.
@@ -545,18 +588,24 @@ To eliminate "when applicable", each skill must tag KPI as **mandatory** or **ma
 ---
 
 ## 13) Blueprint to convert this standard into AI skills
+### 13.0 Naming and file layout convention (mandatory)
+- Skill naming must follow the primary role/assignment responsible for the output.
+- File layout must always be: `skills/<role-based-skill-name>/SKILL.md`.
+- Folder names must use kebab-case.
+- Recommended first implementation: `skills/product-manager/SKILL.md` (market validation: ICP, priority pain, value thesis).
+
 ### 13.1 Recommended skills (minimum)
-| Skill | Objective | Mandatory input | Standard output |
+| Skill folder | Objective | Mandatory input | Standard output |
 |---|---|---|---|
-| skill-estrategia-posicionamento | Define ICP and value thesis | Niche, pains, market signals | Validated thesis + prioritized ICP |
-| skill-oferta-produto | Build offer and MVP backlog | Strategic thesis + constraints | MVP scope + backlog + acceptance |
-| skill-receita-monetizacao | Define revenue model and pricing | Cost, perceived value, benchmark | Primary model + commercial policy |
-| skill-aquisicao-growth | Structure channels and funnel | ICP + offer + budget | Channel plan + CAC targets |
-| skill-conversao-retencao | Improve activation and LTV | Funnel and churn data | CRM/CS plan + retention targets |
-| skill-operacao-gestao | Standardize execution | Current processes and SLAs | SOPs + handoffs + governance |
-| skill-financas-unit-economics | Ensure sustainability | Revenue, costs, cash | Financial model + limits |
-| skill-compliance-governanca | Cover legal/fiscal/LGPD | Data flows and contracts | Minimum compliance package |
-| skill-handoff-dev | Translate business to engineering | Outputs from 8 pillars | Prioritized RF/RNF/BR/CA |
+| product-manager | Define ICP and value thesis | Niche, pains, market signals | Validated thesis + prioritized ICP |
+| product-owner | Build offer and MVP backlog | Strategic thesis + constraints | MVP scope + backlog + acceptance |
+| revenue-strategy-lead | Define revenue model and pricing | Cost, perceived value, benchmark | Primary model + commercial policy |
+| growth-lead | Structure channels and funnel | ICP + offer + budget | Channel plan + CAC targets |
+| crm-retention-lead | Improve activation and LTV | Funnel and churn data | CRM/CS plan + retention targets |
+| head-of-operations | Standardize execution | Current processes and SLAs | SOPs + handoffs + governance |
+| cfo-finance | Ensure sustainability | Revenue, costs, cash | Financial model + limits |
+| legal-dpo | Cover legal/fiscal/LGPD | Data flows and contracts | Minimum compliance package |
+| engineering-handoff-manager | Translate business to engineering | Outputs from 8 pillars | Prioritized RF/RNF/BR/CA |
 
 ### 13.2 Deterministic contract per skill (mandatory)
 Each skill must follow the same Markdown contract to keep consistency.
@@ -564,7 +613,7 @@ Each skill must follow the same Markdown contract to keep consistency.
 #### Block A - Mandatory skill input
 | Field | Mandatory | Example |
 |---|---|---|
-| skill_id | Yes | `skill-aquisicao-growth` |
+| skill_id | Yes | `growth-lead` |
 | segment | Yes | `B2B`, `B2C`, or `Hybrid` |
 | revenue_model | Yes | `Monthly subscription` |
 | maturity_stage | Yes | `Level 1`, `Level 2` |
