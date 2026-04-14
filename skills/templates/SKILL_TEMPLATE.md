@@ -141,6 +141,22 @@ C) <option>
 Choose one and justify.
 ```
 
+### Validation artifacts layout (required)
+```text
+skills/<skill-name>/validation/
+  pressure-scenarios.md
+  test-log.md
+```
+
+`pressure-scenarios.md` minimum:
+- At least 3 scenarios with concrete pressure (time, authority, ambiguity, sunk cost, etc.).
+- Forced options (A/B/C) and the exact line: `Choose one and justify.`
+
+`test-log.md` minimum:
+- RED table with failure behavior and verbatim rationalizations.
+- GREEN table with pass/fail result and evidence lines.
+- REFACTOR table with loophole, counter added, and retest result.
+
 ### GREEN - Minimal Skill to Address Observed Failures
 - [ ] Add only rules needed to counter RED failures.
 - [ ] Add explicit negations for likely loopholes.
