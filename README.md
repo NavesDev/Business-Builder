@@ -11,6 +11,7 @@ Business Builder is a documentation-first framework for creating digital busines
 - [What is included](#what-is-included)
 - [Documentation map](#documentation-map)
 - [Recommended usage flow](#recommended-usage-flow)
+- [Skill testing protocol](#skill-testing-protocol)
 - [Setup and validation commands](#setup-and-validation-commands)
 - [Canonical language policy](#canonical-language-policy)
 - [Contributing](#contributing)
@@ -40,6 +41,32 @@ Business Builder provides a structured operating model that links business goals
 3. Extract decisions, KPIs, gates, and risks.
 4. Produce implementation handoff artifacts (RF/RNF/BR/CA).
 5. Execute and monitor metrics/risk triggers continuously.
+
+## Skill testing protocol
+Use co-located validation assets for each skill:
+- `skills/<skill-name>/validation/pressure-scenarios.md`
+- `skills/<skill-name>/validation/test-log.md`
+
+`pressure-scenarios.md` defines realistic decision pressure (deadline, authority pressure, ambiguity, etc.) with forced options (A/B/C) and "Choose one and justify." prompts.
+
+`test-log.md` stores auditable evidence for:
+- RED baseline failures without the skill
+- GREEN compliant behavior with the skill
+- REFACTOR iterations when new loopholes are found
+
+Execution cycle:
+1. RED: run scenarios without the skill and capture rationalizations verbatim.
+2. GREEN: run the same scenarios with the skill loaded and verify expected behavior.
+3. REFACTOR: add counter-rules for new rationalizations, then rerun scenarios.
+
+Quick checks:
+```bash
+# Validate scenario structure
+grep -nE "IMPORTANT: This is a real scenario|Choose one and justify" skills/<skill-name>/validation/pressure-scenarios.md
+
+# Validate RED/GREEN/REFACTOR log sections
+grep -nE "## RED Baseline|## GREEN Verification|## REFACTOR Iterations" skills/<skill-name>/validation/test-log.md
+```
 
 ## Setup and validation commands
 ```bash

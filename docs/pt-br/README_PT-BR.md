@@ -11,6 +11,7 @@ Business Builder e um framework orientado por documentacao para criacao de negoc
 - [O que esta incluido](#o-que-esta-incluido)
 - [Mapa da documentacao](#mapa-da-documentacao)
 - [Fluxo recomendado de uso](#fluxo-recomendado-de-uso)
+- [Protocolo de testes de skills](#protocolo-de-testes-de-skills)
 - [Comandos de setup e validacao](#comandos-de-setup-e-validacao)
 - [Politica de idioma canonico](#politica-de-idioma-canonico)
 - [Contribuicao](#contribuicao)
@@ -40,6 +41,32 @@ O Business Builder oferece um modelo operacional estruturado que conecta objetiv
 3. Extraia decisoes, KPIs, gates e riscos.
 4. Produza artefatos de handoff (RF/RNF/BR/CA).
 5. Execute e monitore metricas/gatilhos de risco continuamente.
+
+## Protocolo de testes de skills
+Use artefatos de validacao co-localizados em cada skill:
+- `skills/<skill-name>/validation/pressure-scenarios.md`
+- `skills/<skill-name>/validation/test-log.md`
+
+`pressure-scenarios.md` define cenarios realistas de pressao decisoria (prazo, autoridade, ambiguidade etc.) com opcoes forcadas (A/B/C) e prompt "Choose one and justify.".
+
+`test-log.md` guarda evidencia auditavel para:
+- falhas RED sem a skill
+- comportamento GREEN com a skill carregada
+- iteracoes REFACTOR quando surgem novos loopholes
+
+Ciclo de execucao:
+1. RED: rode os cenarios sem a skill e capture racionalizacoes literalmente.
+2. GREEN: rode os mesmos cenarios com a skill e valide o comportamento esperado.
+3. REFACTOR: adicione contra-regras para novas racionalizacoes e rode novamente.
+
+Checks rapidos:
+```bash
+# Validar estrutura dos cenarios
+grep -nE "IMPORTANT: This is a real scenario|Choose one and justify" skills/<skill-name>/validation/pressure-scenarios.md
+
+# Validar secoes RED/GREEN/REFACTOR do log
+grep -nE "## RED Baseline|## GREEN Verification|## REFACTOR Iterations" skills/<skill-name>/validation/test-log.md
+```
 
 ## Comandos de setup e validacao
 ```bash
