@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added `init` skill at `skills/init/SKILL.md` with deterministic intake for `novo|existente|em_construcao`, `.business-builder/` workspace bootstrap, `idea.md`/`users.md` create-or-update behavior, and `product-owner` validation routing.
 - Added init validation assets at `skills/init/validation/pressure-scenarios.md` and `skills/init/validation/test-log.md`.
 - Added init workspace templates under `skills/init/templates/.business-builder/` for root artifacts, context, product-management, and product-output scaffolding.
+- Added fragmented verb-based skills: `skills/analyze-workspace/SKILL.md`, `skills/prioritize-scope/SKILL.md`, and `skills/validate-handoff/SKILL.md`.
+- Added validation harnesses for fragmented skills under `skills/analyze-workspace/validation/`, `skills/prioritize-scope/validation/`, and `skills/validate-handoff/validation/`.
 
 ### Changed
 - Expanded monetization coverage with a broader revenue model library and explicit model-selection sequence.
@@ -26,3 +28,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Refined cross-functional execution with explicit function-interface contracts, handoff packet structure, SLA rules, and escalation levels.
 - Updated AI skill blueprint to enforce role-based skill naming and file layout (`skills/<role-based-skill-name>/SKILL.md`), with `product-manager` as the recommended first implementation.
 - Clarified EN and PT-BR READMEs to explicitly position Business Builder as an AI plugin.
+- Refactored `skills/product-owner/SKILL.md` into an orchestrator role that coordinates `analyze-workspace`, `prioritize-scope`, and `validate-handoff` in deterministic sequence.

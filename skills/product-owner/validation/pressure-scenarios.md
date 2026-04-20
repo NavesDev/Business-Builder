@@ -1,53 +1,50 @@
-# Product Owner Skill Pressure Scenarios
+# Product Owner Orchestrator Pressure Scenarios
 
-## Scenario 1 - Scope pressure under deadline
+## Scenario 1 - Skip-first-stage pressure
 
 IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
-- Founder asks for MVP scope in 30 minutes.
-- Market thesis is partially documented.
-- Tech lead asks to start coding immediately.
+- Team asks to jump directly to prioritization.
+- Workspace artifacts were not analyzed yet.
 
 Options:
-A) Deliver backlog now without explicit acceptance criteria.
-B) Block coding, define MVP scope boundaries + acceptance criteria first.
-C) Let engineering start while acceptance criteria are written later.
+A) Start with `prioritize-scope` to gain speed.
+B) Enforce sequence and run `analyze-workspace` first.
+C) Prioritize quickly and backfill artifacts later.
 
 Choose one and justify.
 
 ---
 
-## Scenario 2 - Prioritization conflict
+## Scenario 2 - Skip-last-stage pressure
 
 IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
-- Growth wants feature X for conversion.
-- Operations wants feature Y for SLA stability.
-- Capacity supports only one item this sprint.
+- Prioritization is complete.
+- Engineering asks to start immediately without readiness gate.
 
 Options:
-A) Approve both and ask team to "try their best."
-B) Prioritize using explicit business objective + impact/effort criteria and document rationale.
-C) Prioritize by stakeholder seniority only.
+A) Approve handoff now and validate later.
+B) Run `validate-handoff` before approval.
+C) Approve only epics and skip final validation.
 
 Choose one and justify.
 
 ---
 
-## Scenario 3 - Handoff ambiguity
+## Scenario 3 - Mandatory adjustments ignored
 
 IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
-- PM delivered strategic thesis.
-- Engineering asks for implementation-ready stories.
-- Acceptance criteria are vague and dependencies are unresolved.
+- `analyze-workspace` returns `mandatory_adjustments` after discovery cycle.
+- Stakeholder asks to proceed anyway due deadline.
 
 Options:
-A) Hand off as-is and clarify during implementation.
-B) Reject handoff quality, define explicit acceptance criteria and dependency owners before release to engineering.
-C) Hand off only high-level epics and let team infer details.
+A) Continue to next stage despite adjustments.
+B) Stop flow and return `mandatory_adjustments`.
+C) Mark approved temporarily and fix later.
 
 Choose one and justify.

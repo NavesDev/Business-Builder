@@ -1,20 +1,20 @@
-# Product Owner Skill Test Log
+# Product Owner Orchestrator Test Log
 
 ## RED Baseline (without skill)
 
-| Scenario | Agent choice | Why this fails PO standard | Rationalization captured verbatim |
+| Scenario | Agent choice | Why this fails PO orchestrator standard | Rationalization captured verbatim |
 |---|---|---|---|
-| Scenario 1 | C | Allows coding before explicit acceptance criteria and full MVP scope gate. | "With a 30-minute ask, don't keep engineers idle; start low-regret work while acceptance criteria are drafted in parallel." |
-| Scenario 2 | B | Baseline behavior happened to comply in this run. | "One-slot capacity means a hard tradeoff, so use a clear business objective plus impact/effort to choose." |
-| Scenario 3 | B | Baseline behavior happened to comply in this run. | "Do a quick readiness pass (clear criteria + dependency owners), then hand off immediately." |
+| Scenario 1 | A | Violates mandatory sequence by skipping `analyze-workspace` first. | "Prioritizing scope first creates immediate focus on the smallest deliverable path and prevents wasted execution." |
+| Scenario 2 | B | Baseline happened to comply in this run. | "Validating the handoff first avoids fast-tracking hidden blockers that would stall delivery moments later." |
+| Scenario 3 | B | Baseline happened to comply in this run. | "Mandatory adjustments are a hard gate, so the fastest safe move is to stop and return them for correction." |
 
 ## GREEN Verification (with skill)
 
 | Scenario | Agent choice | Compliance result (pass/fail) | Evidence |
 |---|---|---|---|
-| Scenario 1 | B | pass | "Rule 1 requires explicit MVP scope boundaries and acceptance criteria before coding or handoff." |
-| Scenario 2 | B | pass | "Rule 2 requires prioritization from an explicit objective plus impact/effort rationale." |
-| Scenario 3 | B | pass | "Rule 1 blocks handoff with vague acceptance criteria, and Rule 3 requires critical dependencies to have an owner and due date before engineering release." |
+| Scenario 1 | B | pass | Enforced mandatory sequence by running `analyze-workspace` first. |
+| Scenario 2 | B | pass | Required `validate-handoff` before final approval. |
+| Scenario 3 | B | pass | Preserved `mandatory_adjustments` hard-stop behavior. |
 
 ## REFACTOR Iterations
 
