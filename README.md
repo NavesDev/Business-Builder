@@ -37,11 +37,12 @@ Business Builder provides a structured operating model that links business goals
 - Skills: [`skills/`](skills/)
 
 ## Recommended usage flow
-1. Read the business framework document.
-2. Pick the target pillar (strategy, product, monetization, growth, etc.).
-3. Extract decisions, KPIs, gates, and risks.
-4. Produce implementation handoff artifacts (RF/RNF/BR/CA).
-5. Execute and monitor metrics/risk triggers continuously.
+1. Run `init` to bootstrap `.business-builder/`, capture business state, and route validation to `product-owner`.
+2. Read the business framework document.
+3. Pick the target pillar (strategy, product, monetization, growth, etc.).
+4. Extract decisions, KPIs, gates, and risks.
+5. Produce implementation handoff artifacts (RF/RNF/BR/CA).
+6. Execute and monitor metrics/risk triggers continuously.
 
 ## Skill testing protocol
 Use co-located validation assets for each skill:

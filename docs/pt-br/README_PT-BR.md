@@ -37,11 +37,12 @@ O Business Builder oferece um modelo operacional estruturado que conecta objetiv
 - Skills: [`../../skills/`](../../skills/)
 
 ## Fluxo recomendado de uso
-1. Leia o documento de framework de negocio.
-2. Escolha o pilar alvo (estrategia, produto, monetizacao, growth etc.).
-3. Extraia decisoes, KPIs, gates e riscos.
-4. Produza artefatos de handoff (RF/RNF/BR/CA).
-5. Execute e monitore metricas/gatilhos de risco continuamente.
+1. Rode `init` para iniciar `.business-builder/`, capturar o estado do negocio e encaminhar validacao ao `product-owner`.
+2. Leia o documento de framework de negocio.
+3. Escolha o pilar alvo (estrategia, produto, monetizacao, growth etc.).
+4. Extraia decisoes, KPIs, gates e riscos.
+5. Produza artefatos de handoff (RF/RNF/BR/CA).
+6. Execute e monitore metricas/gatilhos de risco continuamente.
 
 ## Protocolo de testes de skills
 Use artefatos de validacao co-localizados em cada skill:
