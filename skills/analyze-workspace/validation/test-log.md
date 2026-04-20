@@ -14,7 +14,7 @@
 |---|---|---|---|
 | Scenario 1 | B | pass | Asked discovery questions and created missing `users.md` before continuation. |
 | Scenario 2 | B | pass | Updated outdated `idea.md` before analysis output. |
-| Scenario 3 | B | pass | Preserved `.business-builder` default and required explicit override confirmation. |
+| Scenario 3 | B | pass | Preserved `business-builder` default and required explicit override confirmation. |
 
 ## REFACTOR Iterations
 

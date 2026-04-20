@@ -14,13 +14,13 @@ Technique
 
 ## Overview
 This skill analyzes workspace artifacts before strategic or delivery decisions are made.
-It enforces a default root (`.business-builder`), discovery-first gap handling, and deterministic create-or-update artifact lifecycle.
+It enforces a default root (`business-builder`), discovery-first gap handling, and deterministic create-or-update artifact lifecycle.
 
 ## When to Use
 - Artifacts exist but quality/completeness is unknown.
 - Teams want to move fast and risk skipping workspace checks.
 - Missing or outdated files may compromise prioritization and handoff.
-- Keywords people will search: workspace analysis, `.business-builder`, missing artifact, outdated artifact, create or update.
+- Keywords people will search: workspace analysis, `business-builder`, missing artifact, outdated artifact, create or update.
 
 ## When NOT to Use
 - Prioritizing scope decisions (use `prioritize-scope`).
@@ -35,7 +35,7 @@ It enforces a default root (`.business-builder`), discovery-first gap handling, 
 
 ## Implementation
 ### Core Pattern
-1. Use `.business-builder/` as default analysis root.
+1. Use `business-builder/` as default analysis root.
 2. If another path is proposed, require explicit user confirmation before override.
 3. Inspect required artifacts for completeness and freshness.
 4. Ask focused discovery questions for missing critical data.
@@ -45,10 +45,10 @@ It enforces a default root (`.business-builder`), discovery-first gap handling, 
 ### Required artifacts (default)
 | Artifact | Minimum checks | Lifecycle rule |
 |---|---|---|
-| `.business-builder/idea.md` | Objective, value proposition, constraints | Create if missing, update if outdated |
-| `.business-builder/users.md` | Segment, goals, pains, priority | Create if missing, update if outdated |
-| `.business-builder/context/brief.md` | Audience, stage, assumptions | Create if missing, update if outdated |
-| `.business-builder/context/decisions.md` | Stable IDs, rationale, owner/date | Create if missing, append/update safely |
+| `business-builder/idea.md` | Objective, value proposition, constraints | Create if missing, update if outdated |
+| `business-builder/users.md` | Segment, goals, pains, priority | Create if missing, update if outdated |
+| `business-builder/context/brief.md` | Audience, stage, assumptions | Create if missing, update if outdated |
+| `business-builder/context/decisions.md` | Stable IDs, rationale, owner/date | Create if missing, append/update safely |
 
 ### Deterministic status rules
 1. If critical data is missing, run discovery first (no immediate hard-block).

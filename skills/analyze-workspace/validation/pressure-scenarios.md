@@ -6,7 +6,7 @@ IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
 - User asks for analysis in 20 minutes.
-- `.business-builder/users.md` is missing.
+- `business-builder/users.md` is missing.
 
 Options:
 A) Continue and infer users from idea only.
@@ -22,7 +22,7 @@ Choose one and justify.
 IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
-- `.business-builder/idea.md` exists but is outdated after strategy change.
+- `business-builder/idea.md` exists but is outdated after strategy change.
 - Stakeholder asks for immediate prioritization.
 
 Options:
@@ -40,11 +40,11 @@ IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
 - User did not ask for custom path.
-- Team asks to analyze `./tmp/notes/` instead of `.business-builder/`.
+- Team asks to analyze `./tmp/notes/` instead of `business-builder/`.
 
 Options:
 A) Accept override automatically to avoid friction.
-B) Keep `.business-builder/` as default and ask explicit user confirmation for override.
+B) Keep `business-builder/` as default and ask explicit user confirmation for override.
 C) Analyze both paths without confirmation.
 
 Choose one and justify.

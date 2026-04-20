@@ -36,7 +36,7 @@ It does not replace those skills and must not skip their sequence.
 
 ## Implementation
 ### Orchestration Pattern
-1. Run `analyze-workspace` with `.business-builder` as default root (or explicit override).
+1. Run `analyze-workspace` with `business-builder` as default root (or explicit override).
 2. If critical data remains missing after create/update cycle, return `mandatory_adjustments`.
 3. Run `prioritize-scope` using objective + impact/effort criteria.
 4. Run `validate-handoff` to verify readiness package consistency.

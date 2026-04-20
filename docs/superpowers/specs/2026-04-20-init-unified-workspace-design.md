@@ -4,8 +4,8 @@
 The current init design and implementation plan still target `business-builder/` and do not fully capture the intake branch where the business already exists or is already in construction. We need one canonical workspace folder per project and a deterministic intake+validation flow before downstream handoff.
 
 ## Approved Approach
-1. Replace the canonical workspace root with `.business-builder/` across spec and implementation plan.
-2. Update `init` behavior to always ensure `.business-builder/` exists before artifact handling.
+1. Replace the canonical workspace root with `business-builder/` across spec and implementation plan.
+2. Update `init` behavior to always ensure `business-builder/` exists before artifact handling.
 3. Make business state mandatory in intake with fixed values: `novo`, `existente`, `em_construcao`.
 4. Route all states through `product-owner` validation before continuing the flow.
 5. Ensure `idea.md` and `users.md` are baseline artifacts for the flow branch where business is `existente` or `em_construcao`, with deterministic create-or-update behavior.
@@ -17,7 +17,7 @@ The current init design and implementation plan still target `business-builder/`
 
 ## Workspace Structure
 ```text
-.business-builder/
+business-builder/
   context/
   product-management/
   product-output/
@@ -28,7 +28,7 @@ The current init design and implementation plan still target `business-builder/`
 ## Init Flow
 1. User triggers `init`.
 2. `init` collects idea inputs and mandatory business state (`novo|existente|em_construcao`).
-3. `init` guarantees `.business-builder/` exists.
+3. `init` guarantees `business-builder/` exists.
 4. If state is `existente` or `em_construcao`, `init` creates `idea.md` and `users.md` when missing, or updates them when present.
 5. `init` sends the structured package to `product-owner` for validation.
 6. With `product-owner` OK, flow proceeds with existing downstream orchestration.
@@ -49,7 +49,7 @@ The current init design and implementation plan still target `business-builder/`
   3. Business in construction with missing artifacts (create path).
 
 ## Success Criteria
-1. Canonical path is `.business-builder/` in spec and plan.
+1. Canonical path is `business-builder/` in spec and plan.
 2. `init` deterministic state handling includes `novo`, `existente`, `em_construcao`.
 3. `idea.md` and `users.md` follow create-or-update behavior for `existente` and `em_construcao`.
 4. `product-owner` validation is explicit in the orchestration flow before continuation.

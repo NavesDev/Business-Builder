@@ -37,7 +37,7 @@ O Business Builder oferece um modelo operacional estruturado que conecta objetiv
 - Skills: [`../../skills/`](../../skills/)
 
 ## Fluxo recomendado de uso
-1. Rode `init` para iniciar `.business-builder/`, capturar o estado do negocio e encaminhar validacao ao `product-owner`.
+1. Rode `init` para iniciar `business-builder/`, capturar o estado do negocio e encaminhar validacao ao `product-owner`.
 2. Leia o documento de framework de negocio.
 3. Escolha o pilar alvo (estrategia, produto, monetizacao, growth etc.).
 4. Extraia decisoes, KPIs, gates e riscos.

@@ -1,6 +1,6 @@
 ---
 name: init
-description: Use when starting or restructuring a business initiative and you need deterministic intake, workspace bootstrap in .business-builder, and validation routing before downstream specification work.
+description: Use when starting or restructuring a business initiative and you need deterministic intake, workspace bootstrap in business-builder, and validation routing before downstream specification work.
 ---
 
 # Init
@@ -13,14 +13,14 @@ Technique
 - **REQUIRED SUB-SKILL:** None.
 
 ## Overview
-This skill initializes a unified `.business-builder/` workspace and structures the first business intake package.
+This skill initializes a unified `business-builder/` workspace and structures the first business intake package.
 It enforces mandatory business state classification, protects existing context artifacts, and routes validation to `product-owner` before continuation.
 
 ## When to Use
 - New initiative with no structured business artifacts yet.
 - Existing business needs improvement and artifacts are partial/outdated.
 - Business is in construction and needs deterministic continuation rules.
-- Keywords people will search: init workspace, business intake, `.business-builder`, idea.md, users.md, product-owner validation.
+- Keywords people will search: init workspace, business intake, `business-builder`, idea.md, users.md, product-owner validation.
 
 ## When NOT to Use
 - Deep product-management analysis (use `product-management`).
@@ -38,9 +38,9 @@ It enforces mandatory business state classification, protects existing context a
 ## Implementation
 ### Core Pattern
 1. Collect mandatory intake fields: idea, `business_state` (`novo|existente|em_construcao`), objective, audience, constraints, stage, assumptions.
-2. Ensure `.business-builder/` exists before any artifact generation.
+2. Ensure `business-builder/` exists before any artifact generation.
 3. If `business_state` is `existente` or `em_construcao`, create `idea.md`/`users.md` when missing and update when present.
-4. Write normalized context artifacts in `.business-builder/context/`.
+4. Write normalized context artifacts in `business-builder/context/`.
 5. Prepare handoff package and send to `product-owner` for validation.
 6. Return deterministic status.
 
@@ -50,7 +50,7 @@ It enforces mandatory business state classification, protects existing context a
 | Final status | `approved`, `mandatory_adjustments`, `gate_failed` |
 | Intake summary | 3-5 lines of normalized context |
 | Missing fields | Explicit list or `none` |
-| Artifacts initialized | Paths created/updated in `.business-builder/` |
+| Artifacts initialized | Paths created/updated in `business-builder/` |
 | Validation route | `product-owner` + expected validation outcome |
 
 ### Deterministic gate rules

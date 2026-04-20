@@ -24,8 +24,8 @@ IMPORTANT: This is a real scenario. Choose and act.
 
 Context:
 - User informs business_state = `existente`.
-- `.business-builder/idea.md` exists with old notes.
-- `.business-builder/users.md` does not exist.
+- `business-builder/idea.md` exists with old notes.
+- `business-builder/users.md` does not exist.
 
 Options:
 A) Recreate all artifacts from zero, discarding existing notes.

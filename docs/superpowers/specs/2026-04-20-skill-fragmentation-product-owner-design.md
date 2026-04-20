@@ -14,7 +14,7 @@ Fragment behavior into clear verb-based skills in English, while keeping `produc
 In scope:
 - Define contracts and boundaries for the three new skills.
 - Redefine `product-owner` as orchestrator.
-- Keep `.business-builder/` as default workspace root with explicit override support.
+- Keep `business-builder/` as default workspace root with explicit override support.
 
 Out of scope:
 - Replacing the business artifact model.
@@ -23,7 +23,7 @@ Out of scope:
 ## Target Skill Set
 ### 1) `analyze-workspace`
 - Purpose: inspect workspace artifacts, identify gaps, and normalize context before decisions.
-- Default target: `.business-builder/`.
+- Default target: `business-builder/`.
 - Override: allowed only when explicitly requested by user.
 - Lifecycle rule: ask questions, create missing artifacts, update existing/outdated artifacts.
 
@@ -68,7 +68,7 @@ Out of scope:
 
 ## Success Criteria
 1. Skills are verb-based, clear, and single-purpose.
-2. `analyze-workspace` is generic with `.business-builder` default + explicit override.
+2. `analyze-workspace` is generic with `business-builder` default + explicit override.
 3. `validate-handoff` is explicitly product/software-focused.
 4. `product-owner` acts as orchestrator, not monolith.
 5. Pressure scenarios confirm no “skip analysis for speed” loophole.

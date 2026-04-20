@@ -14,9 +14,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Added developer-oriented README elements: badges, table of contents, setup/validation commands, and contribution workflow.
 - Added role-based Product Owner skill at `skills/product-owner/SKILL.md` with deterministic output contract, handoff quality gates, and RED/GREEN validation artifacts.
 - Added a documented skill testing protocol (pressure scenarios + test log workflow) in EN/PT-BR READMEs and the skill template.
-- Added `init` skill at `skills/init/SKILL.md` with deterministic intake for `novo|existente|em_construcao`, `.business-builder/` workspace bootstrap, `idea.md`/`users.md` create-or-update behavior, and `product-owner` validation routing.
+- Added `init` skill at `skills/init/SKILL.md` with deterministic intake for `novo|existente|em_construcao`, `business-builder/` workspace bootstrap, `idea.md`/`users.md` create-or-update behavior, and `product-owner` validation routing.
 - Added init validation assets at `skills/init/validation/pressure-scenarios.md` and `skills/init/validation/test-log.md`.
-- Added init workspace templates under `skills/init/templates/.business-builder/` for root artifacts, context, product-management, and product-output scaffolding.
+- Added init workspace templates under `skills/init/templates/business-builder/` for root artifacts, context, product-management, and product-output scaffolding.
 - Added fragmented verb-based skills: `skills/analyze-workspace/SKILL.md`, `skills/prioritize-scope/SKILL.md`, and `skills/validate-handoff/SKILL.md`.
 - Added validation harnesses for fragmented skills under `skills/analyze-workspace/validation/`, `skills/prioritize-scope/validation/`, and `skills/validate-handoff/validation/`.
 

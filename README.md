@@ -37,7 +37,7 @@ Business Builder provides a structured operating model that links business goals
 - Skills: [`skills/`](skills/)
 
 ## Recommended usage flow
-1. Run `init` to bootstrap `.business-builder/`, capture business state, and route validation to `product-owner`.
+1. Run `init` to bootstrap `business-builder/`, capture business state, and route validation to `product-owner`.
 2. Read the business framework document.
 3. Pick the target pillar (strategy, product, monetization, growth, etc.).
 4. Extract decisions, KPIs, gates, and risks.
