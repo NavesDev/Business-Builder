@@ -1,0 +1,22 @@
+{
+    "name": "business-builder",
+    "description": "AI plugin and documentation-first framework for creating digital businesses with operational standards across strategy, product, monetization, growth, governance, and development handoff.",
+    "version": "0.1.0",
+    "author": {
+        "name": "NavesDev"
+    },
+    "homepage": "https://github.com/NavesDev/Business-Builder",
+    "repository": "https://github.com/NavesDev/Business-Builder",
+    "license": "MIT",
+    "keywords": [
+        "business-builder",
+        "strategy",
+        "product-management",
+        "monetization",
+        "growth",
+        "governance",
+        "ai-plugin",
+        "framework",
+        "digital-business"
+    ]
+}
