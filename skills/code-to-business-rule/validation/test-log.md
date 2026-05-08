@@ -1,15 +1,22 @@
+# Code-to-Business-Rule — Validation Test Log
+
 ## RED Baseline
-- Test: [describe failing behavior]
-- Expected: [expected behavior]
-- Actual: [observed failure]
+- Date: 2026-05-08
+- Scenario set: skills/code-to-business-rule/validation/pressure-scenarios.md
+- Observed failures:
+  - silent inference
+  - conflict ignored
+  - unresolved ambiguity
 
 ## GREEN Verification
-- Tests:
-  - [ ] [list passing tests]
-- Verification steps:
-  1. [step 1]
-  2. [step 2]
+- Date: 2026-05-08
+- Skill loaded: code-to-business-rule
+- Verified behaviors:
+  - explicit gaps
+  - GAP-CONFLICT
+  - block finalization
 
 ## REFACTOR Iterations
-- Notes:
-  - [refactor notes]
+- Iteration 1:
+  - Loophole: identified implicit assumption allowing silent gap-filling
+  - Counter-rule: require explicit gap markers and fail on ambiguous merges
