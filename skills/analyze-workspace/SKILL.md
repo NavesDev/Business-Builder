@@ -6,7 +6,7 @@ description: Use when checking whether an existing business-builder workspace al
 # Analyze Workspace
 
 ## Overview
-This is a read-only analysis skill for an existing `business-builder/` folder at repository root.
+This is a read-only analysis skill for an existing `business-builder/` workspace in modular repository layouts.
 
 It extracts evidence and returns a structured diagnosis in chat. It never creates, edits, or deletes files.
 
@@ -16,17 +16,29 @@ It extracts evidence and returns a structured diagnosis in chat. It never create
 - You need a quick RF/RNF/business-rules diagnosis from current workspace artifacts.
 
 ## Hard Rules
-1. Analyze only `business-builder/` at repository root.
-2. If `business-builder/` is missing or empty, return this exact message:
+1. Analyze only the detected `business-builder` workspace path (see **Workspace Resolution Rules**).
+2. If no valid workspace is found or the selected workspace is empty, return this exact message:
    - `No business-builder workspace found (or it is empty), so there is no business base to extract requirements or rules yet.`
 3. Never synthesize evidence from `docs/`, `skills/`, or other folders.
 4. Never create, update, or delete files.
 5. Do not infer full requirements when evidence is missing; report gaps instead.
 
+## Workspace Resolution Rules
+Resolve a single target workspace before analysis, using this precedence:
+1. `docs/business-builder/`
+2. `apps/*/docs/business-builder/` (if multiple matches, ask user to choose one)
+3. `business-builder/` (legacy repository-root layout)
+
+Resolution behavior:
+- If exactly one candidate exists, use it.
+- If multiple candidates exist, stop and ask the user which workspace should be analyzed.
+- If no candidates exist, return the exact absence message defined above.
+
 ## Analysis Workflow
-1. Confirm whether `business-builder/` exists and has files.
-2. Collect relevant text evidence inside `business-builder/`.
-3. Build a diagnosis using this exact section order:
+1. Resolve target workspace path with Workspace Resolution Rules.
+2. Confirm whether resolved workspace exists and has files.
+3. Collect relevant text evidence inside the resolved workspace only.
+4. Build a diagnosis using this exact section order:
    1. Context found
    2. Functional requirements
    3. Non-functional requirements
@@ -61,7 +73,7 @@ Each gap should include:
 - `required-clarification`
 
 ## Confidence Level
-Use only evidence quality from `business-builder/`.
+Use only evidence quality from the resolved `business-builder` workspace.
 
 - **High**: explicit, consistent, multi-source evidence
 - **Medium**: mostly explicit evidence with minor ambiguity
