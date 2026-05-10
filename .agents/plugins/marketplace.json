@@ -1,0 +1,20 @@
+{
+  "name": "business-builder",
+  "interface": {
+    "displayName": "Business Builder"
+  },
+  "plugins": [
+    {
+      "name": "business-builder",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
