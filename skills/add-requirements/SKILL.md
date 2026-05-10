@@ -1,12 +1,12 @@
 ---
 name: add-requirements
-description: Use when converting a free-form user request into structured requirements documentation in business-builder/ with strict BDD and INVEST quality gates.
+description: Use when converting a free-form user request into structured requirements documentation in a resolved business-builder workspace with strict BDD and INVEST quality gates.
 ---
 
 # Add Requirements
 
 ## Overview
-This skill transforms a natural-language user request into high-quality requirements documentation under `business-builder/requirements/`.
+This skill transforms a natural-language user request into high-quality requirements documentation under the resolved `business-builder` workspace `requirements/` folder.
 
 Core principle: **no final delivery without full BDD + INVEST compliance**.
 
@@ -14,42 +14,54 @@ Core principle: **no final delivery without full BDD + INVEST compliance**.
 - A user provides an idea or request in free-form text.
 - You need formal requirements documentation before planning or implementation.
 - Requirements must be testable, traceable, and unambiguous.
-- You must keep outputs inside `business-builder/`.
+- You must keep outputs inside the resolved `business-builder` workspace.
 
 Do not use this skill to implement code.
 
 ## Hard Rules
-1. Work only inside `business-builder/`.
-2. Output documentation in English.
-3. Use BDD (`Given/When/Then`) for every user story.
-4. Validate every requirement/story with INVEST.
-5. If any quality gate fails, block final delivery.
-6. Never finish in warnings-only mode.
-7. For failed items, use guided clarification questions (one at a time) until all gates pass.
-8. Use incremental merge behavior; do not destructively rewrite unless explicitly requested.
+1. Before any write operation, run **analyze-workspace** to resolve architecture/workspace and baseline requirement evidence.
+2. Work only inside the resolved `business-builder` workspace.
+3. Output documentation in English.
+4. Use BDD (`Given/When/Then`) for every user story.
+5. Validate every requirement/story with INVEST.
+6. If any quality gate fails, block final delivery.
+7. Never finish in warnings-only mode.
+8. For failed items, use guided clarification questions (one at a time) until all gates pass.
+9. Use incremental merge behavior; do not destructively rewrite unless explicitly requested.
 
 ## Inputs
 - Primary input: user request in natural language.
-- Optional input: existing docs in `business-builder/requirements/`.
+- Optional input: existing docs in `<resolved-workspace>/requirements/`.
+
+## Workspace Resolution Dependency
+This skill depends on `analyze-workspace` for path resolution in modular layouts.
+
+Accepted workspace locations:
+1. `docs/business-builder/`
+2. `apps/*/docs/business-builder/` (if multiple, ask user to choose)
+3. `business-builder/` (legacy repository-root layout)
+
+If no workspace exists, ask the user where to create it and only proceed after explicit confirmation.
 
 ## Workflow
-1. Intake the user request.
-2. Normalize context:
+1. Run `analyze-workspace` first to identify current architecture and existing requirement evidence.
+2. Intake the user request.
+3. Normalize context:
    - actors
    - goals
    - constraints
    - assumptions
    - business terms
-3. Extract candidate requirements:
+4. Extract candidate requirements:
    - functional requirements
    - non-functional requirements
    - user stories
    - acceptance criteria
-4. Convert user stories to BDD scenarios.
-5. Apply INVEST validation to each requirement/story.
-6. If all items pass, write/update output files.
-7. If any item fails, enter Guided Refinement Loop.
-8. Update traceability mapping from source request to generated items.
+5. Convert user stories to BDD scenarios.
+6. Apply INVEST validation to each requirement/story.
+7. If all items pass, write/update output files.
+8. If any item fails, enter Guided Refinement Loop.
+9. Update traceability mapping from source request to generated items.
 
 ## BDD Rules
 For each user story:
@@ -84,12 +96,12 @@ When a requirement/story fails BDD or INVEST:
 - Keep output blocked while conflicts or ambiguities remain.
 
 ## Output Structure
-Write/update:
-- `business-builder/requirements/functional-requirements.md`
-- `business-builder/requirements/non-functional-requirements.md`
-- `business-builder/requirements/user-stories-bdd.md`
-- `business-builder/requirements/acceptance-criteria.md`
-- `business-builder/requirements/requirements-traceability.md`
+Write/update inside `<resolved-workspace>/requirements/`:
+- `functional-requirements.md`
+- `non-functional-requirements.md`
+- `user-stories-bdd.md`
+- `acceptance-criteria.md`
+- `requirements-traceability.md`
 
 ## Merge Strategy
 - Preserve valid existing content.
@@ -135,7 +147,7 @@ If any check fails, continue Guided Refinement Loop.
 
 ## Output Contract (Chat)
 Return a concise summary with:
-1. Files created/updated in `business-builder/requirements/`.
+1. Files created/updated in `<resolved-workspace>/requirements/`.
 2. Total requirements/stories accepted.
 3. Clarification questions used to resolve blocked items.
 4. Confirmation that all BDD + INVEST gates passed.
