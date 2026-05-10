@@ -1,0 +1,42 @@
+{
+  "name": "business-builder",
+  "version": "0.1.0",
+  "description": "AI plugin and documentation-first framework for creating digital businesses with operational standards across strategy, product, monetization, growth, governance, and development handoff.",
+  "author": {
+    "name": "NavesDev",
+    "url": "https://github.com/NavesDev"
+  },
+  "homepage": "https://github.com/NavesDev/Business-Builder",
+  "repository": "https://github.com/NavesDev/Business-Builder",
+  "license": "MIT",
+  "keywords": [
+    "business-builder",
+    "strategy",
+    "product-management",
+    "monetization",
+    "growth",
+    "governance",
+    "ai-plugin",
+    "framework",
+    "digital-business"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Business Builder",
+    "shortDescription": "Framework and skills for building digital businesses with operational rigor.",
+    "longDescription": "Business Builder combines a documentation-first framework with role-based AI skills to structure strategy, product, monetization, growth, governance, and development handoff for digital businesses.",
+    "developerName": "NavesDev",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/NavesDev/Business-Builder",
+    "defaultPrompt": [
+      "Analyze this workspace and identify business gaps.",
+      "Add requirements for a new product capability.",
+      "Turn strategy goals into implementation handoff artifacts."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
